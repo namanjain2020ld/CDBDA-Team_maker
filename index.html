@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to CBDA DataVerse 2024</title>
+  <style>@import url('https://fonts.googleapis.com/css?family=Space%20Grotesk:700|Space%20Grotesk:400');
+
+    :root {
+      /* change this for scaling */
+      --m: 4rem;
+      --red: #FF6565;
+      --pink: #FF64F9;
+      --purple: #6B5FFF;
+      --blue: #4D8AFF;
+      --green: #5BFF89;
+      --yellow: #FFEE55;
+      --orange: #FF6D1B;
+    }
+    
+    body {
+      background-color: #141516;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      overflow: hidden; /* Hide overflow to prevent scroll bars during animation */
+    }
+    
+    h1, button {
+      opacity: 0; /* Initially hide elements */
+      transform: translateY(50px); /* Slide down 50px initially */
+      transition: opacity 1s ease, transform 1s ease; /* Smooth transition for opacity and transform */
+    }
+    
+    h1 {
+      text-align: center;
+      color: white;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: calc(1 * var(--m)); /* Adjust font size as needed */
+      margin-bottom: calc(1 * var(--m)); /* Adjust margin as needed */
+    }
+    
+    button {
+      border: calc(0.08 * var(--m)) solid transparent;
+      position: relative;
+      color: #F3F3F3;
+      font-family: 'Space Grotesk';
+      font-size: var(--m);
+      border-radius: calc(0.7 * var(--m));
+      padding: calc(0.5 * var(--m)) calc(1 * var(--m));
+      display: flex;
+      justify-content: center;
+      cursor: pointer;
+      background: linear-gradient(#121213, #121213), linear-gradient(#121213 50%, rgba(18, 18, 19, 0.6) 80%, rgba(18, 18, 19, 0)),  linear-gradient(90deg, var(--orange), var(--yellow), var(--green), var(--blue), var(--purple), var(--pink), var(--red));
+      background-origin: border-box;
+      background-clip: padding-box, border-box, border-box;
+      background-size: 200%;
+      animation: animate 2s infinite linear;
+      transform-style: preserve-3d; /* Preserve 3D positioning */
+      transition: transform 0.5s ease-in-out; /* Smooth transition */
+    }
+    
+    button::before {
+      content: '';
+      background: linear-gradient(90deg, var(--orange), var(--yellow), var(--green), var(--blue), var(--purple), var(--pink), var(--red));
+      height: 30%;
+      width: 60%;
+      position: absolute;
+      bottom: -20%;
+      z-index: -5;
+      background-size: 200%;
+      animation: animate 2s infinite linear;
+      filter: blur(calc(0.8 * var(--m)));
+      transform: translateZ(-10px); /* 3D depth */
+    }
+    
+    button:hover, button:hover::before, h1:hover {
+      animation: animate 0.5s infinite linear;
+      /* 3D rotation on hover */
+    }
+    
+    @keyframes animate {
+      0% { background-position: 0 }
+      100% { background-position: 200% }
+    }
+    
+    @media screen and (max-width: 1000px) {
+      :root {
+        --m: 1rem;
+      }
+    }
+    
+    /* Animation-specific styles */
+    body.animate-in h1, body.animate-in button {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    </style>
+</head>
+<body>
+
+  <h1>
+    <span>Welcome to </span><br>
+    <span>CBDA DataVerse 2024</span>
+  </h1>
+
+  <button onclick="window.location.href = 'temify.html'">Get started</button>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+  <script>document.addEventListener('DOMContentLoaded', function() {
+    const body = document.querySelector('body');
+    body.classList.add('animate-in');
+  });
+  </script>
+</body>
+</html>
