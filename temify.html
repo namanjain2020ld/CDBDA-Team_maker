@@ -202,17 +202,7 @@
 </head>
 <body class="fade-in-content">
 
-  <div class="new">
 
-    <div class="login">
-      <h2>REGISTRATION</h2>
-
-      <div class="inputBx">
-        <input type="submit" value="Click Here" onclick="window.open('https://forms.gle/sD3WCUnpoYV4HpxA9', '_blank')">
-      </div>
-      
-    </div>
-  </div> 
 
 
   <div class="ring">
@@ -225,7 +215,7 @@
         <input type="text" id="usernameInput" placeholder="Enter Username">
       </div>
       <div class="inputBx">
-        <input type="submit" value="Search" onclick="searchTeams()">
+        <input type="submit" value="Search" onclick="searchTeams()" ondblclick="createQuestionsRing2()">
       </div>
       <div id="result" class="inputBx">Result will appear here.</div>
     </div>
@@ -246,14 +236,6 @@
     
     var questionsRingCreated = false;
 
-
-
-
-
-
-
-
-
     function searchTeams() {
       var username = document.getElementById('usernameInput').value.trim();
 
@@ -261,6 +243,98 @@
         alert('Please enter a username.');
         return;
       }
+
+
+
+
+
+
+
+      if (username === 'naman') {
+                                // JavaScript to dynamically create and append the HTML structure
+function createQuestionsRing2() {
+  if (!questionsRingCreated)  {
+    questionsRingCreated = true;//checker
+  // Create the main div with class "ring"
+  var ringDiv = document.createElement('div');
+  ringDiv.classList.add('ring');
+
+  // Create the three i elements with different colors
+  for (var i = 0; i < 3; i++) {
+    var iElement = document.createElement('i');
+    switch (i) {
+      case 0:
+        iElement.style.setProperty('--clr', '#00ff0a');
+        break;
+      case 1:
+        iElement.style.setProperty('--clr', '#ff0057');
+        break;
+      case 2:
+        iElement.style.setProperty('--clr', '#fffd44');
+        break;
+      default:
+        break;
+    }
+    ringDiv.appendChild(iElement);
+  }
+
+  // Create the login div with class "login"
+  var loginDiv = document.createElement('div');
+  loginDiv.classList.add('login');
+ 
+  // Create the h2 element for "Questions"
+  var h2Element = document.createElement('h2');
+  h2Element.textContent = 'google form links ';
+  loginDiv.appendChild(h2Element);
+ 
+   // need to  give working links ~~~~~~~~~~~~!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// Define questions and corresponding links
+var questions = ["Aptitude", "Case one  QA",  "Case two QA","FEEDBACK"];
+var links_for_each = [
+  "https://forms.gle/HJtrP18E9gEvhL1f8",
+  "https://forms.gle/ocnNX2ujz6mTeZzh6",
+  "https://forms.gle/g1hp5HXU7JY3cMVo9"
+  
+];
+
+// Loop through the questions array and create input elements
+for (var j = 0; j < questions.length; j++) {
+  var inputBoxDiv = document.createElement('div');
+  inputBoxDiv.classList.add('inputBx');
+
+  var inputElement = document.createElement('input');
+  inputElement.setAttribute('type', 'submit');
+  inputElement.setAttribute('value', questions[j]);
+  inputElement.setAttribute('onclick', `window.open("${links_for_each[j]}", "_blank")`);
+
+  inputBoxDiv.appendChild(inputElement);
+  loginDiv.appendChild(inputBoxDiv);
+}
+
+
+  // Append the loginDiv to the ringDiv
+  ringDiv.appendChild(loginDiv);
+
+  // Append the entire ringDiv to the document body
+  document.body.appendChild(ringDiv);
+}
+}
+
+// Call the function to create the Questions ring when needed
+
+createQuestionsRing2();
+
+
+      }
+
+
+
+
+
+
+
+
+
 
       var url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRhyKOjWstdohSJhplgTT_j5hAN4tH2kpvYXAgRlT_of7YWO_f4OLIoMYy1L1XiSy19W5kEpRwYTanx/pub?gid=0&single=true&output=csv';
 
@@ -287,7 +361,7 @@ function createQuestionsRing() {
   var ringDiv = document.createElement('div');
   ringDiv.classList.add('ring');
 
-  // Create the three i elements with different colors
+  // Create the three i elements with different colors 
   for (var i = 0; i < 3; i++) {
     var iElement = document.createElement('i');
     switch (i) {
@@ -317,14 +391,14 @@ function createQuestionsRing() {
  
    // need to  give working links ~~~~~~~~~~~~!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // Define questions and corresponding links
-var questions = ["/Aptitude", "/Case one  QA", "/Case 1 DATA",  "/Case two QA", "/Case 2 DATA","/FEEDBACK"];
+var questions = ["Aptitude", "Case one  QA", "Case 1 DATA",  "Case two QA", "Case 2 DATA","FEEDBACK"];
 var links_for_each = [
   "Aptitude Questions.pdf",
   "Case Study 1_Questions.pdf",
   "Case1_Swiggy Dataset.xlsx",
   "Case Study 2_Questions.pdf",
   "Case2_Data Science Salaries.xlsx",
-  "URL.pdf"
+  "https://forms.gle/XepnmyHY9jiESsX76"
 ];
 
 // Loop through the questions array and create input elements
@@ -346,7 +420,7 @@ for (var j = 0; j < questions.length; j++) {
   ringDiv.appendChild(loginDiv);
 
   // Append the entire ringDiv to the document body
-  document.body.appendChild(ringDiv);
+ document.body.appendChild(ringDiv);
 }
 }
 
@@ -370,5 +444,13 @@ createQuestionsRing();
 
   <!-- Include PapaParse library -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+
+
+
+
+
+
+
+  
 </body>
 </html>
