@@ -31,7 +31,7 @@
     
     h1, button {
       opacity: 0; /* Initially hide elements */
-      transform: translateY(50px); /* Slide down 50px initially */
+      transform: translateY(500px); /* Slide down 50px initially */
       transition: opacity 1s ease, transform 1s ease; /* Smooth transition for opacity and transform */
     }
     
@@ -40,7 +40,7 @@
       color: white;
       font-family: 'Space Grotesk', sans-serif;
       font-size: calc(1 * var(--m)); /* Adjust font size as needed */
-      margin-bottom: calc(1 * var(--m)); /* Adjust margin as needed */
+      margin-bottom: calc(2.5 * var(--m)); /* Adjust margin as needed */
     }
     
     button {
@@ -74,7 +74,7 @@
       background-size: 200%;
       animation: animate 2s infinite linear;
       filter: blur(calc(0.8 * var(--m)));
-      transform: translateZ(-10px); /* 3D depth */
+      transform: translateZ(-110px); /* 3D depth */
     }
     
     button:hover, button:hover::before, h1:hover {
@@ -99,15 +99,164 @@
       transform: translateY(0);
     }
     </style>
+    <style>
+      div.at-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 10%;
+      }
+      .at-item {
+         font-weight:bold;
+        
+        animation-name: focus-in-contract;
+        animation-duration: 1s;
+        animation-timing-function: ease;
+        animation-delay: 0s;
+        animation-iteration-count: 1;
+        animation-direction: normal;
+        animation-fill-mode: none;
+          
+        /* shorthand
+        animation: focus-in-contract 1s ease 0s 1 normal none;*/
+      }
+      @keyframes focus-in-contract {
+          
+        0% {
+          letter-spacing:1em;
+          filter:blur(12px);
+          opacity:0;
+        }
+        100% {
+          filter:blur(0);
+          opacity:1;
+        }
+      }
+    </style>
+
+    
+
+
+<style>    .login {
+  position: absolute;
+  width: 300px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+  margin: 500px;
+}
+.login h2 {
+  font-size: 2em;
+  color: #fff;
+}
+.login .inputBx {
+  position: relative;
+  width: 100%;
+}
+.login .inputBx input {
+  position: relative;
+  width: 100%;
+  padding: 12px 20px;
+  background: transparent;
+  border: 2px solid #fff;
+  border-radius: 40px;
+  font-size: 1.2em;
+  color: #fff;
+  box-shadow: none;
+  outline: none;
+  transition: all 0.3s ease;
+}
+.login .inputBx input[type="submit"] {
+  width: 100%;
+  background: #0078ff;
+  background: linear-gradient(45deg, #ff357a, #fff172);
+  border: none;
+  cursor: pointer;
+  font-size: 2.3em;
+  font-weight: bold;
+  color: #fff;
+  border-radius: 40px;
+  padding: 25px 0;
+  margin-top: 25px;
+  box-shadow: 0 5px 15px rgb(80, 3, 78);
+}
+.login .inputBx input[type="submit"]:hover {
+  background: #39ff14;
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+.login .inputBx input::placeholder {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+
+/*//////////////////////////////////////////////////////////////////////////////////////////*/
+.fade-in-content {
+  opacity: 0;
+  transform: translateY(100vh); /* Start from below the viewport */
+  animation: fadeInUp 1.5s forwards, slideUp 1.5s forwards;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(100vh); /* Start from below the viewport */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); /* Slide up to its original position */
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(100vh); /* Start from below the viewport */
+  }
+  100% {
+    transform: translateY(0); /* Slide up to its original position */
+  }
+}
+
+
+
+
+</style>
+
+
+
+
+
+
 </head>
-<body>
+<body class="fade-in-content">
 
-  <h1>
+  
+
+ 
+
+
+     
+    
+  
+  
+
+  <h1 style="margin-top: -50px;">
     <span>Welcome to </span><br>
-    <span>CBDA DataVerse 2024</span>
+    <span>CBDA DataVerse 2024</span> 
   </h1>
+  <div class="login">
+      
 
-  <button onclick="window.location.href = 'temify.html'">Get started</button>
+    <div class="inputBx">
+      <input type="submit" value="REGISTRATION" onclick="window.open('https://forms.gle/sD3WCUnpoYV4HpxA9', '_blank')">
+    </div>
+    
+  </div>
+
+  <button id="godmove" style="margin-top: 50px;">teams are being made</button>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
   <script>document.addEventListener('DOMContentLoaded', function() {
@@ -115,5 +264,7 @@
     body.classList.add('animate-in');
   });
   </script>
+
+
 </body>
 </html>
